@@ -1,0 +1,1 @@
+exec AdminDB..ap_BackupChain @DatabaseName='pp4l150',@FullOnly=1

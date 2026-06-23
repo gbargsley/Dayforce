@@ -1,0 +1,4 @@
+=== Deploy start: 2026-03-06T11:10:18.6016534-05:00 on azg5bcpsql001 ===
+Detected Major=, ProductVersion=
+Version query warnings: [11:10:34][Connect-DbaInstance] Failure | Error connecting to [azg5bcpsql001]: The network path was not found.; [11:10:34][Invoke-DbaQuery] Failure | The network path was not found.
+SKIPPED - SQL version True (major ) is older/unknown; skipping deployment.

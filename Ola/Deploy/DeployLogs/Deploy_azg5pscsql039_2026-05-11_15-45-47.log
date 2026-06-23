@@ -1,0 +1,9 @@
+=== Deploy start: 2026-05-11T15:53:21.6011125-04:00 on azg5pscsql039 ===
+Detected Major=16, ProductVersion=16.0.4250
+VersionInfo: 16.0.4250
+SQL version is 2022+ — proceeding.
+Attempting rename dbo.DatabaseBackup -> DatabaseBackup_glb001...
+Executing SQL content on AdminDB (length 224500 chars)...
+SQL executed successfully.
+=== Deploy end: 2026-05-11T15:53:22.6352633-04:00 ===
+

@@ -1,0 +1,4 @@
+=== Deploy start: 2026-06-08T10:46:52.5924924-04:00 on azm2dfcscb001 ===
+Detected Major=15, ProductVersion=15.0.4410
+VersionInfo: 15.0.4410
+SKIPPED - SQL version True (major 15) is older/unknown; skipping deployment.

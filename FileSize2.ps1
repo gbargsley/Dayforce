@@ -1,0 +1,1 @@
+Get-DbaDbSpace -SqlInstance AZG2SVCSQL013 | Where-Object { ($_.FileType -eq 'ROWS' ) -AND ( $_.FileSize -gt 10GB ) } | Out-GridView

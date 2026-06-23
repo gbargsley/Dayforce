@@ -1,0 +1,4 @@
+=== Deploy start: 2026-04-22T11:28:41.9621773-04:00 on azg2dfcsql023 ===
+Detected Major=, ProductVersion=
+VersionInfo: The property 'Value' cannot be found on this object. Verify that the property exists.
+SKIPPED - SQL version True (major ) is older/unknown; skipping deployment.

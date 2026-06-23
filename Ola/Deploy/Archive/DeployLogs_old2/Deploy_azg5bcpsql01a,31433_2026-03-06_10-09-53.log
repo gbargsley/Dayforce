@@ -1,0 +1,5 @@
+=== Deploy start: 2026-03-06T10:09:57.9914107-05:00 on azg5bcpsql01a,31433 ===
+Checking SQL version...
+Version query failed: The property 'MajorVersion' cannot be found on this object. Verify that the property exists.
+=== Deploy end: 2026-03-06T10:09:58.1273211-05:00 ===
+

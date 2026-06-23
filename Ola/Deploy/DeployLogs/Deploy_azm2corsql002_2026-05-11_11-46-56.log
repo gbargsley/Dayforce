@@ -1,0 +1,11 @@
+=== Deploy start: 2026-05-11T11:47:56.9638164-04:00 on azm2corsql002 ===
+Detected Major=16, ProductVersion=16.0.4250
+VersionInfo: 16.0.4250
+SQL version is 2022+ — proceeding.
+Attempting rename dbo.DatabaseBackup -> DatabaseBackup_glb6...
+Executing SQL content on AdminDB (length 224643 chars)...
+SQL executed successfully.
+SQL execution warnings: [11:48:02][Invoke-DbaQuery] [azm2corsql002] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.
+=== Deploy end: 2026-05-11T11:48:02.3165060-04:00 ===
+

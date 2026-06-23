@@ -1,0 +1,11 @@
+=== Deploy start: 2026-05-11T15:10:44.8520796-04:00 on azg5jupsql01a ===
+Detected Major=16, ProductVersion=16.0.4225
+VersionInfo: 16.0.4225
+SQL version is 2022+ — proceeding.
+Attempting rename dbo.DatabaseBackup -> DatabaseBackup_glb6...
+Executing SQL content on AdminDB (length 224643 chars)...
+SQL executed successfully.
+SQL execution warnings: [15:10:45][Invoke-DbaQuery] [azg5jupsql01a] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.
+=== Deploy end: 2026-05-11T15:10:45.4359125-04:00 ===
+

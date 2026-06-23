@@ -1,0 +1,19 @@
+=== Deploy start: 2026-06-08T10:48:34.8178986-04:00 on azm2lidsql003 ===
+Detected Major=16, ProductVersion=16.0.4252
+VersionInfo: 16.0.4252
+SQL version is 2022+ — proceeding.
+Attempting rename dbo.DatabaseBackup -> DatabaseBackup_glb001...
+Executing SQL content on AdminDB (length 224500 chars)...
+SQL executed successfully.
+=== Deploy end: 2026-06-08T10:48:40.5488722-04:00 ===
+
+=== Deploy start: 2026-06-08T10:48:40.5522962-04:00 on azm2lidsql003 ===
+Detected Major=16, ProductVersion=16.0.4252
+VersionInfo: 16.0.4252
+SQL version is 2022+ — proceeding.
+Attempting rename dbo.DatabaseBackup -> DatabaseBackup_glb001...
+Rename warnings: [10:48:43][Invoke-DbaQuery] [azm2lidsql003] Failed during execution | Error: The new name 'DatabaseBackup_glb001' is already in use as a OBJECT name and would cause a duplicate that is not permitted.
+Executing SQL content on AdminDB (length 224500 chars)...
+SQL executed successfully.
+=== Deploy end: 2026-06-08T10:48:45.5566453-04:00 ===
+

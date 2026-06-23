@@ -1,0 +1,10 @@
+=== Deploy start: 2026-05-11T16:22:57.3200435-04:00 on azg9sndsql06d ===
+Detected Major=16, ProductVersion=16.0.4245
+VersionInfo: 16.0.4245
+SQL version is 2022+ — proceeding.
+Attempting rename dbo.DatabaseBackup -> DatabaseBackup_glb001...
+Rename warnings: [16:22:57][Invoke-DbaQuery] [azg9sndsql06d] Failed during execution | Error: The new name 'DatabaseBackup_glb001' is already in use as a OBJECT name and would cause a duplicate that is not permitted.
+Executing SQL content on AdminDB (length 224500 chars)...
+SQL executed successfully.
+=== Deploy end: 2026-05-11T16:22:57.8138280-04:00 ===
+

@@ -1,0 +1,138 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>AG Failure Log Review</title>
+    <style>
+        body { font-family: Segoe UI, Arial, sans-serif; margin: 20px; color: #222; }
+        h1, h2, h3 { margin-bottom: 8px; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 18px; }
+        th, td { border: 1px solid #d0d0d0; padding: 6px 8px; vertical-align: top; text-align: left; }
+        th { background: #f3f3f3; }
+        pre { white-space: pre-wrap; background: #f7f7f7; border: 1px solid #dcdcdc; padding: 12px; }
+        .meta { margin-bottom: 18px; }
+        .tiny { color: #666; font-size: 12px; }
+        .incident-block { margin: 18px 0 26px 0; padding: 0; border: 1px solid #ddd; border-left-width: 8px; border-radius: 8px; background: #fff; overflow: hidden; }
+        .incident-block summary { list-style: none; cursor: pointer; padding: 14px 14px 12px 14px; display: flex; flex-direction: column; gap: 4px; }
+        .incident-block summary::-webkit-details-marker { display: none; }
+        .incident-summary { font-weight: 700; font-size: 16px; }
+        .incident-summary-meta { color: #555; font-size: 12px; }
+        .incident-body { padding: 0 14px 14px 14px; }
+        .incident-high { border-left-color: #b42318; background: #fff7f7; }
+        .incident-medium { border-left-color: #d97706; background: #fffaf0; }
+        .incident-low { border-left-color: #15803d; background: #f6fff9; }
+        .row-high td { background: #fff1f1; }
+        .row-medium td { background: #fff7e6; }
+        .row-low td { background: #f5fbff; }
+        .row-failover-start td { background: #ffd6d6; font-weight: 700; }
+        .row-failover-complete td { background: #d6ffd9; font-weight: 700; }
+        .marker-box { border: 1px solid #cfcfcf; padding: 10px; border-radius: 8px; background: #fafafa; margin: 10px 0 14px 0; }
+    </style>
+</head>
+<body>
+    <h1>Availability Group Failure Log Review</h1>
+    <div class="meta">
+        <table>
+    <tr><th>Availability Group</th><td>Prod_AG</td></tr>
+    <tr><th>Seed Instance</th><td>azg1dfcsql94dnn.custadds.com</td></tr>
+    <tr><th>Window Start</th><td>05/11/2026 00:00:00</td></tr>
+    <tr><th>Window End</th><td>05/11/2026 23:59:59</td></tr>
+    <tr><th>Raw Event Rows</th><td>144</td></tr>
+    <tr><th>Unique Events</th><td>15</td></tr>
+    <tr><th>Noise Reduction</th><td>89.6%</td></tr>
+    <tr><th>Incidents</th><td>1</td></tr>
+    <tr><th>Primary Chain</th><td>azg1dfcsql94d</td></tr>
+    <tr><th>Likely Root Cause</th><td>SQL Server restart or shutdown (High)</td></tr>
+    <tr><th>Top Incident</th><td>#1</td></tr>
+</table>
+    </div>
+    <h2>Summary</h2>
+    <pre>AG Incident Summary: Prod_AG
+Window: 2026-05-11 00:00:00 to 2026-05-11 23:59:59
+Replicas scanned: 3
+Skipped replicas: none
+Raw rows captured: 144
+Unique events after noise reduction: 15
+Noise reduced by: 89.6%
+Incidents detected: 1
+Primary chain observed: azg1dfcsql94d
+
+Quick answer:
+- Failover occurred: YES
+- Top incident: #1 [High] 2026-05-11 16:30:41 -&gt; 2026-05-11 16:37:07 (High (80/100))
+- Likely root cause: SQL Server restart or shutdown (High)
+- Failover start: 2026-05-11 16:30:41
+- Failover complete: 2026-05-11 16:30:41
+- Failover duration: 0 minutes
+- Initial primary: azg1dfcsql94d
+- Final primary: azg1dfcsql94d
+
+Incident workflow:
+Incident 1 [High] 2026-05-11 16:30:41 -&gt; 2026-05-11 16:37:07 (6.43 min, 15 events, Recovered, confidence High (80/100))
+  Trigger: Role transition; Categories: Failover / role transition
+  Root cause: SQL Server restart or shutdown (High)
+  Failover start marker: 2026-05-11 16:30:41
+  Failover completion marker: 2026-05-11 16:30:41
+  Primary before/after: primary stayed on azg1dfcsql94d
+
+Primary timeline:
+2026-05-11 16:30:42  azg1dfcsql94d   -&gt; PRIMARY  (Transition to primary role)
+2026-05-11 16:30:42  azg1dfcsql94d  RESOLVING_NORMAL -&gt; PRIMARY_PENDING  (Explicit state change)
+2026-05-11 16:30:42  azg1dfcsql94d  PRIMARY_PENDING -&gt; PRIMARY_NORMAL  (Explicit state change)
+
+Assessment:
+The strongest incident candidate is Incident 1.
+That incident points to SQL Server restart or shutdown.</pre>
+
+    <h2>Primary Timeline</h2>
+    <p class="tiny">This shows the exact promotion evidence used to explain how the AG moved from one primary to another.</p>
+    <table>
+        <tr><th>Time</th><th>Replica</th><th>From</th><th>To</th><th>Evidence</th></tr>
+        <tr><td>05/11/2026 16:30:42</td><td>azg1dfcsql94d</td><td></td><td>PRIMARY</td><td>Transition to primary role</td></tr>
+<tr><td>05/11/2026 16:30:42</td><td>azg1dfcsql94d</td><td>RESOLVING_NORMAL</td><td>PRIMARY_PENDING</td><td>Explicit state change</td></tr>
+<tr><td>05/11/2026 16:30:42</td><td>azg1dfcsql94d</td><td>PRIMARY_PENDING</td><td>PRIMARY_NORMAL</td><td>Explicit state change</td></tr>
+    </table>
+
+    <h2>Incident Overview</h2>
+    <p class="tiny">Incidents are grouped by quiet gaps between events. The failover markers, confidence score, and root cause are derived from the log evidence.</p>
+    <table>
+        <tr>
+            <th>Incident</th><th>Start</th><th>End</th><th>Duration (min)</th><th>Events</th><th>Status</th><th>Confidence</th><th>Trigger</th><th>Root Cause</th><th>Failover Start</th><th>Failover Complete</th><th>Categories</th><th>Primary Before</th><th>Primary After</th>
+        </tr>
+        <tr class='incident-high'><td>1</td><td>05/11/2026 16:30:41</td><td>05/11/2026 16:37:07</td><td>6.43</td><td>15</td><td>Recovered</td><td>High (80/100)</td><td>Role transition</td><td>SQL Server restart or shutdown (High)</td><td>05/11/2026 16:30:41</td><td>05/11/2026 16:30:41</td><td>Failover / role transition</td><td></td><td>azg1dfcsql94d</td></tr>
+    </table>
+
+    <h2>Incident Detail</h2>
+    <details class='incident-block incident-high'>
+  <summary>
+    <span class='incident-summary'>Incident 1 - High - Recovered</span>
+    <span class='incident-summary-meta'>Confidence: High (80/100) | Primary:  -> azg1dfcsql94d | Root cause: SQL Server restart or shutdown (High)</span>
+  </summary>
+  <div class='incident-body'>
+    <p><strong>Window:</strong> 05/11/2026 16:30:41 to 05/11/2026 16:37:07<br/><strong>Duration:</strong> 6.43 minutes<br/><strong>Trigger:</strong> Role transition<br/><strong>Root cause evidence:</strong> The state of the local availability replica in availability group &#39;Prod_AG&#39; has changed from &#39;NOT_AVAILABLE&#39; to &#39;RESOLVING_NORMAL&#39;. The state changed because the local instance of SQL Server is starting up. For more information, see the SQL Server error log or cluster log. If this is a Windows Server Failover Clustering (WSFC) availability group, you can also see the WSFC management console.<br/><strong>Primary before/after:</strong>  -> azg1dfcsql94d</p>
+    <div class='marker-box'>
+  <div><strong>Failover start:</strong> 05/11/2026 16:30:41</div>
+  <div><strong>Failover complete:</strong> 05/11/2026 16:30:41</div>
+  <div><strong>Failover duration:</strong> 0 minutes</div>
+</div>
+    <table>
+      <tr><th>Incident</th><th>Time</th><th>Replica</th><th>Phase</th><th>Category</th><th>Source</th><th>Message</th></tr>
+      <tr class='row-failover-start'><td>1</td><td>05/11/2026 16:30:41</td><td>azg1dfcsql94d</td><td>Role transition</td><td>Failover / role transition</td><td>spid120s</td><td>🔴 FAILOVER START - The state of the local availability replica in availability group &#39;Prod_AG&#39; has changed from &#39;SECONDARY_NORMAL&#39; to &#39;RESOLVING_NORMAL&#39;. The state changed because the availability group state has changed in Windows Server Failover Clustering (WSFC). For more information, see the SQL Server error log or cluster log. If this is a Windows Server Failover Clustering (WSFC) availability group, you can also see the WSFC management console.</td></tr>
+<tr class='row-failover-start'><td>1</td><td>05/11/2026 16:30:41</td><td>azg1dfcsql94d</td><td>Role transition</td><td>Failover / role transition</td><td>spid257s</td><td>🔴 FAILOVER START - The availability group database &quot;xencor&quot; is changing roles from &quot;SECONDARY&quot; to &quot;RESOLVING&quot; because the mirroring session or availability group failed over due to role synchronization. This is an informational message only. No user action is required.</td></tr>
+<tr class='row-failover-start'><td>1</td><td>05/11/2026 16:30:41</td><td>azh1dfcsql94f,31433</td><td>Role transition</td><td>Failover / role transition</td><td>spid110s</td><td>🔴 FAILOVER START - The state of the local availability replica in availability group &#39;Prod_AG&#39; has changed from &#39;SECONDARY_NORMAL&#39; to &#39;RESOLVING_NORMAL&#39;. The state changed because the availability group state has changed in Windows Server Failover Clustering (WSFC). For more information, see the SQL Server error log or cluster log. If this is a Windows Server Failover Clustering (WSFC) availability group, you can also see the WSFC management console.</td></tr>
+<tr class='row-failover-start'><td>1</td><td>05/11/2026 16:30:41</td><td>azh1dfcsql94f,31433</td><td>Role transition</td><td>Failover / role transition</td><td>spid209s</td><td>🔴 FAILOVER START - The availability group database &quot;dewberry&quot; is changing roles from &quot;SECONDARY&quot; to &quot;RESOLVING&quot; because the mirroring session or availability group failed over due to role synchronization. This is an informational message only. No user action is required.</td></tr>
+<tr class='row-failover-start'><td>1</td><td>05/11/2026 16:30:41</td><td>azh1dfcsql94f,31433</td><td>Role transition</td><td>Failover / role transition</td><td>spid215s</td><td>🔴 FAILOVER START - The availability group database &quot;vmmc&quot; is changing roles from &quot;SECONDARY&quot; to &quot;RESOLVING&quot; because the mirroring session or availability group failed over due to role synchronization. This is an informational message only. No user action is required.</td></tr>
+<tr class='row-medium'><td>1</td><td>05/11/2026 16:30:42</td><td>azg1dfcsql94d</td><td>Role transition</td><td>Failover / role transition</td><td>spid131</td><td>Always On: The local replica of availability group &#39;Prod_AG&#39; is preparing to transition to the primary role. This is an informational message only. No user action is required.</td></tr>
+<tr class='row-medium'><td>1</td><td>05/11/2026 16:30:42</td><td>azg1dfcsql94d</td><td>Role transition</td><td>Failover / role transition</td><td>spid131</td><td>The state of the local availability replica in availability group &#39;Prod_AG&#39; has changed from &#39;RESOLVING_NORMAL&#39; to &#39;PRIMARY_PENDING&#39;. The state changed because the availability group is coming online. For more information, see the SQL Server error log or cluster log. If this is a Windows Server Failover Clustering (WSFC) availability group, you can also see the WSFC management console.</td></tr>
+<tr class='row-medium'><td>1</td><td>05/11/2026 16:30:42</td><td>azg1dfcsql94d</td><td>Role transition</td><td>Failover / role transition</td><td>Server</td><td>The state of the local availability replica in availability group &#39;Prod_AG&#39; has changed from &#39;PRIMARY_PENDING&#39; to &#39;PRIMARY_NORMAL&#39;. The state changed because the local replica has completed processing Online command from Windows Server Failover Clustering (WSFC). For more information, see the SQL Server error log or cluster log. If this is a Windows Server Failover Clustering (WSFC) availability group, you can also see the WSFC management console.</td></tr>
+<tr class='row-medium'><td>1</td><td>05/11/2026 16:30:42</td><td>azg1dfcsql94d</td><td>Role transition</td><td>Failover / role transition</td><td>spid275s</td><td>The availability group database &quot;themathco&quot; is changing roles from &quot;RESOLVING&quot; to &quot;PRIMARY&quot; because the mirroring session or availability group failed over due to role synchronization. This is an informational message only. No user action is required.</td></tr>
+<tr class='row-medium'><td>1</td><td>05/11/2026 16:30:42</td><td>azg1dfcsql94d</td><td>Role transition</td><td>Failover / role transition</td><td>spid270s</td><td>The availability group database &quot;aubonpain&quot; is changing roles from &quot;RESOLVING&quot; to &quot;PRIMARY&quot; because the mirroring session or availability group failed over due to role synchronization. This is an informational message only. No user action is required.</td></tr>
+<tr class='row-medium'><td>1</td><td>05/11/2026 16:30:42</td><td>azh1dfcsql94f,31433</td><td>Role transition</td><td>Failover / role transition</td><td>spid110s</td><td>The state of the local availability replica in availability group &#39;Prod_AG&#39; has changed from &#39;RESOLVING_NORMAL&#39; to &#39;SECONDARY_NORMAL&#39;. The state changed because the availability group state has changed in Windows Server Failover Clustering (WSFC). For more information, see the SQL Server error log or cluster log. If this is a Windows Server Failover Clustering (WSFC) availability group, you can also see the WSFC management console.</td></tr>
+<tr class='row-medium'><td>1</td><td>05/11/2026 16:30:42</td><td>azh1dfcsql94f,31433</td><td>Role transition</td><td>Failover / role transition</td><td>spid217s</td><td>The availability group database &quot;dewberry&quot; is changing roles from &quot;RESOLVING&quot; to &quot;SECONDARY&quot; because the mirroring session or availability group failed over due to role synchronization. This is an informational message only. No user action is required.</td></tr>
+<tr class='row-medium'><td>1</td><td>05/11/2026 16:30:43</td><td>azh1dfcsql94f,31433</td><td>Role transition</td><td>Failover / role transition</td><td>spid209s</td><td>The availability group database &quot;kellan&quot; is changing roles from &quot;RESOLVING&quot; to &quot;SECONDARY&quot; because the mirroring session or availability group failed over due to role synchronization. This is an informational message only. No user action is required.</td></tr>
+<tr class='row-medium'><td>1</td><td>05/11/2026 16:37:07</td><td>azg1dfcsql94e,31433</td><td>Role transition</td><td>Failover / role transition</td><td>spid67s</td><td>The state of the local availability replica in availability group &#39;Prod_AG&#39; has changed from &#39;NOT_AVAILABLE&#39; to &#39;RESOLVING_NORMAL&#39;. The state changed because the local instance of SQL Server is starting up. For more information, see the SQL Server error log or cluster log. If this is a Windows Server Failover Clustering (WSFC) availability group, you can also see the WSFC management console.</td></tr>
+<tr class='row-medium'><td>1</td><td>05/11/2026 16:37:07</td><td>azg1dfcsql94e,31433</td><td>Role transition</td><td>Failover / role transition</td><td>spid76s</td><td>The state of the local availability replica in availability group &#39;Prod_AG&#39; has changed from &#39;RESOLVING_NORMAL&#39; to &#39;SECONDARY_NORMAL&#39;. The state changed because the availability group state has changed in Windows Server Failover Clustering (WSFC). For more information, see the SQL Server error log or cluster log. If this is a Windows Server Failover Clustering (WSFC) availability group, you can also see the WSFC management console.</td></tr>
+    </table>
+  </div>
+</details>
+</body>
+</html>

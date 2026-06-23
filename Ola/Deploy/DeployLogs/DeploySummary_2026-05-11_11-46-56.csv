@@ -1,0 +1,39 @@
+"Server","SqlMajor","ProductVersion","VersionInfo","RenameResult","DeployResult","Warnings","Error","Timestamp"
+"aza2dfcsql006","16","16.0.4250","16.0.4250","RENAMED","Success","[11:47:08][Invoke-DbaQuery] [aza2dfcsql006] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:46:56"
+"aza2dfcsql007","16","16.0.4250","16.0.4250","RENAMED","Success","[11:47:21][Invoke-DbaQuery] [aza2dfcsql007] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:47:08"
+"aza2dfcsql008","16","16.0.4250","16.0.4250","RENAMED","Success","[11:47:33][Invoke-DbaQuery] [aza2dfcsql008] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:47:21"
+"aza2svcsql002","16","16.0.4250","16.0.4250","RENAMED","Success","[11:47:44][Invoke-DbaQuery] [aza2svcsql002] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:47:33"
+"azc2corsql003","16","16.0.4250","16.0.4250","RENAMED","Success","[11:47:46][Invoke-DbaQuery] [azc2corsql003] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:47:44"
+"azc2dfcsql001","16","16.0.4250","16.0.4250","RENAMED","Success","[11:47:48][Invoke-DbaQuery] [azc2dfcsql001] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:47:46"
+"azc2dfcsql002","16","16.0.4250","16.0.4250","RENAMED","Success","[11:47:50][Invoke-DbaQuery] [azc2dfcsql002] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:47:48"
+"azc2dfcsql003","16","16.0.4250","16.0.4250","RENAMED","Success","[11:47:52][Invoke-DbaQuery] [azc2dfcsql003] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:47:50"
+"azc2vansql003","16","16.0.4250","16.0.4250","RENAMED","Success","[11:47:53][Invoke-DbaQuery] [azc2vansql003] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:47:52"
+"azg2corsql004","16","16.0.4250","16.0.4250","RENAMED","Success","[11:47:54][Invoke-DbaQuery] [azg2corsql004] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:47:53"
+"azg2dfcsql022","16","16.0.4250","16.0.4250","RENAMED","Success","[11:47:54][Invoke-DbaQuery] [azg2dfcsql022] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:47:54"
+"azg2dfcsql023","16","16.0.4250","16.0.4250","RENAMED","Success","[11:47:55][Invoke-DbaQuery] [azg2dfcsql023] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:47:54"
+"azg2dfcsql024","16","16.0.4250","16.0.4250","RENAMED","Success","[11:47:56][Invoke-DbaQuery] [azg2dfcsql024] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:47:55"
+"azg2ehisql004","16","16.0.4250","16.0.4250","RENAMED","Success","[11:47:56][Invoke-DbaQuery] [azg2ehisql004] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:47:56"
+"azm2corsql002","16","16.0.4250","16.0.4250","RENAMED","Success","[11:48:02][Invoke-DbaQuery] [azm2corsql002] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:47:56"
+"azm2dfcsql010","16","16.0.4250","16.0.4250","RENAMED","Success","[11:48:07][Invoke-DbaQuery] [azm2dfcsql010] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:48:02"
+"azm2dfcsql011","16","16.0.4250","16.0.4250","RENAMED","Success","[11:48:13][Invoke-DbaQuery] [azm2dfcsql011] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:48:07"
+"azm2dfcsql012","16","16.0.4250","16.0.4250","RENAMED","Success","[11:48:18][Invoke-DbaQuery] [azm2dfcsql012] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:48:13"
+"azm2whbsql010","16","16.0.4250","16.0.4250","RENAMED","Success","[11:48:24][Invoke-DbaQuery] [azm2whbsql010] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.",,"2026-05-11T11:48:18"

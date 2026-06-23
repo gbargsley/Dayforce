@@ -1,0 +1,4 @@
+=== Deploy start: 2026-03-06T11:13:19.3351085-05:00 on azm5stgsql001 ===
+Detected Major=, ProductVersion=
+Version query warnings: [11:13:34][Connect-DbaInstance] Failure | Error connecting to [azm5stgsql001]: The system cannot find the file specified.; [11:13:34][Invoke-DbaQuery] Failure | The system cannot find the file specified.
+SKIPPED - SQL version True (major ) is older/unknown; skipping deployment.

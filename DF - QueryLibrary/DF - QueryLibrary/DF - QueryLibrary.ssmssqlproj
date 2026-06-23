@@ -1,0 +1,920 @@
+<?xml version="1.0"?>
+<SqlWorkbenchSqlProject xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="DF - QueryLibrary">
+  <Items>
+    <LogicalFolder Name="Connections" Type="2" Sorted="true">
+      <Items>
+        <ConnectionNode Name="AN1PRDDFCMON002:CUSTADDS\PV2C7B6">
+          <Created>2026-05-19T13:50:04.827918-04:00</Created>
+          <Type>SQL</Type>
+          <Server>AN1PRDDFCMON002</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="app105-dfpg-prod-failover-group.database.windows.net:P02C7B6@corpadds.com">
+          <Created>2026-04-24T10:33:19.9825035-04:00</Created>
+          <Type>SQL</Type>
+          <Server>app105-dfpg-prod-failover-group.database.windows.net</Server>
+          <UserName>P02C7B6@corpadds.com</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB>FTRegistry</InitialDB>
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="app105-dfpguk-prod-data-westeurope-sqlsvr.database.windows.net:P02C7B6@corpadds.com">
+          <Created>2026-05-14T09:44:18.9522049-04:00</Created>
+          <Type>SQL</Type>
+          <Server>app105-dfpguk-prod-data-westeurope-sqlsvr.database.windows.net</Server>
+          <UserName>P02C7B6@corpadds.com</UserName>
+          <Authentication>SQL</Authentication>
+          <InitialDB>FTRegistry</InitialDB>
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="aza1monsql001:CUSTADDS\PV2C7B6">
+          <Created>2026-06-01T08:46:41.3712784-04:00</Created>
+          <Type>SQL</Type>
+          <Server>aza1monsql001</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="aza2gcgsql002.custadds.com:CUSTADDS\PV2C7B6">
+          <Created>2026-06-01T09:48:42.3887083-04:00</Created>
+          <Type>SQL</Type>
+          <Server>aza2gcgsql002.custadds.com</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azc1dfcsql41dnn.custadds.com:CUSTADDS\PV2C7B6">
+          <Created>2026-05-11T09:12:51.3409419-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azc1dfcsql41dnn.custadds.com</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azc1dfcsql42dnn.custadds.com:CUSTADDS\PV2C7B6">
+          <Created>2026-06-12T09:58:09.2588115-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azc1dfcsql42dnn.custadds.com</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azc1dfcsql47dnn.custadds.com:CUSTADDS\PV2C7B6">
+          <Created>2026-04-28T12:27:00.3143869-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azc1dfcsql47dnn.custadds.com</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azc1monsql001:CUSTADDS\PV2C7B6">
+          <Created>2026-06-01T08:47:03.5475097-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azc1monsql001</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azc2dfcscb003:CUSTADDS\PV2C7B6">
+          <Created>2026-04-28T12:27:31.5218747-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azc2dfcscb003</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azg1cfasql03dnn:CUSTADDS\PV2C7B6">
+          <Created>2026-06-05T08:45:12.2563578-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azg1cfasql03dnn</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="AZG1DBASQL001:CUSTADDS\PV2C7B6">
+          <Created>2026-05-11T14:15:54.4113294-04:00</Created>
+          <Type>SQL</Type>
+          <Server>AZG1DBASQL001</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="AZG1DBASQL011:CUSTADDS\PV2C7B6">
+          <Created>2026-04-24T10:29:59.0734324-04:00</Created>
+          <Type>SQL</Type>
+          <Server>AZG1DBASQL011</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azg1dfcsql11dnn.custadds.com:CUSTADDS\PV2C7B6">
+          <Created>2026-05-12T12:06:52.3034839-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azg1dfcsql11dnn.custadds.com</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azg1dfcsql55dnn:CUSTADDS\PV2C7B6">
+          <Created>2026-06-02T11:50:52.7763992-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azg1dfcsql55dnn</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB>test</InitialDB>
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azg1dfcsql73dnn.custadds.com:CUSTADDS\PV2C7B6">
+          <Created>2026-06-04T09:07:52.8507484-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azg1dfcsql73dnn.custadds.com</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azg1dfcsql74dnn.custadds.com:CUSTADDS\PV2C7B6">
+          <Created>2026-06-02T15:33:04.4846608-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azg1dfcsql74dnn.custadds.com</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azg1dfcsql81dnn:CUSTADDS\PV2C7B6">
+          <Created>2026-06-09T13:45:40.4311863-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azg1dfcsql81dnn</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azg1dfcsql90d,31433:CUSTADDS\PV2C7B6">
+          <Created>2026-06-03T12:54:15.493794-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azg1dfcsql90d,31433</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="AZG1GUSSQL11DNN:CUSTADDS\PV2C7B6">
+          <Created>2026-06-03T12:53:36.6466759-04:00</Created>
+          <Type>SQL</Type>
+          <Server>AZG1GUSSQL11DNN</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB>unither</InitialDB>
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azg1gussql7dnn.custadds.com:CUSTADDS\PV2C7B6">
+          <Created>2026-05-04T13:57:23.2225052-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azg1gussql7dnn.custadds.com</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azg1gussql8dnn.custadds.com:CUSTADDS\PV2C7B6">
+          <Created>2026-06-12T09:54:38.6245276-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azg1gussql8dnn.custadds.com</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azg1monsql001:CUSTADDS\PV2C7B6">
+          <Created>2026-06-23T12:27:20.3623529-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azg1monsql001</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azg1tjssql03e,31433:CUSTADDS\PV2C7B6">
+          <Created>2026-05-19T10:40:08.1360413-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azg1tjssql03e,31433</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azg1vansql22dnn:CUSTADDS\PV2C7B6">
+          <Created>2026-06-04T09:01:35.5523601-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azg1vansql22dnn</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azg2dfcscb005:CUSTADDS\PV2C7B6">
+          <Created>2026-05-12T12:07:41.8013184-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azg2dfcscb005</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="AZG2DFCSQL026.custadds.com:CUSTADDS\PV2C7B6">
+          <Created>2026-05-04T09:16:59.3608798-04:00</Created>
+          <Type>SQL</Type>
+          <Server>AZG2DFCSQL026.custadds.com</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="AZG2SALSQL001:CUSTADDS\PV2C7B6">
+          <Created>2026-06-04T15:20:47.0380471-04:00</Created>
+          <Type>SQL</Type>
+          <Server>AZG2SALSQL001</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azg2svcsql020:CUSTADDS\PV2C7B6">
+          <Created>2026-06-09T13:45:32.6356882-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azg2svcsql020</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB>master</InitialDB>
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="AZG2TJSSQL006.custadds.com:CUSTADDS\PV2C7B6">
+          <Created>2026-05-04T11:26:20.3330278-04:00</Created>
+          <Type>SQL</Type>
+          <Server>AZG2TJSSQL006.custadds.com</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="AZG5PSCSQL036:CUSTADDS\PV2C7B6">
+          <Created>2026-06-05T13:49:05.5082516-04:00</Created>
+          <Type>SQL</Type>
+          <Server>AZG5PSCSQL036</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="AZG5SUPSQL025:CUSTADDS\PV2C7B6">
+          <Created>2026-06-04T11:25:23.8781185-04:00</Created>
+          <Type>SQL</Type>
+          <Server>AZG5SUPSQL025</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azh1dfcsql55f,31433:CUSTADDS\PV2C7B6">
+          <Created>2026-06-02T11:52:20.0117005-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azh1dfcsql55f,31433</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azm1dfcsql1dnn.custadds.com:CUSTADDS\PV2C7B6">
+          <Created>2026-06-11T13:54:02.5662346-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azm1dfcsql1dnn.custadds.com</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azm1dfcsql2dnn.custadds.com:CUSTADDS\PV2C7B6">
+          <Created>2026-05-14T09:47:05.936705-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azm1dfcsql2dnn.custadds.com</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azm1geusql3dnn.custadds.com:CUSTADDS\PV2C7B6">
+          <Created>2026-06-11T13:48:23.3995779-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azm1geusql3dnn.custadds.com</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azm1monsql001:CUSTADDS\PV2C7B6">
+          <Created>2026-06-01T08:40:39.8677287-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azm1monsql001</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>Microsoft SQL Server Management Studio - Query</ApplicationName>
+        </ConnectionNode>
+        <ConnectionNode Name="azm2whbsql010:CUSTADDS\PV2C7B6">
+          <Created>2026-05-11T15:38:08.6530119-04:00</Created>
+          <Type>SQL</Type>
+          <Server>azm2whbsql010</Server>
+          <UserName />
+          <Authentication>Windows Authentication</Authentication>
+          <InitialDB />
+          <LoginTimeout>15</LoginTimeout>
+          <TrustServerCertificate>True</TrustServerCertificate>
+          <EncryptionOption>True</EncryptionOption>
+          <ExecutionTimeout>0</ExecutionTimeout>
+          <ConnectionProtocol>NotSpecified</ConnectionProtocol>
+          <ApplicationName>SQL Server Management Studio</ApplicationName>
+        </ConnectionNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Queries" Type="0" Sorted="true">
+      <Items>
+        <FileNode Name="1--ActiveSessions.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:AZG2SALSQL001:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>AZG2SALSQL001</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>1--ActiveSessions.sql</FullPath>
+        </FileNode>
+        <FileNode Name="1--CDC_Fix.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:AZG5SUPSQL025:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>AZG5SUPSQL025</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>1--CDC_Fix.sql</FullPath>
+        </FileNode>
+        <FileNode Name="1--ServerList.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:AZG1DBASQL011:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>AZG1DBASQL011</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>1--ServerList.sql</FullPath>
+        </FileNode>
+        <FileNode Name="2--TraderJoe-BJE-PayCommit.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:azg1tjssql03e,31433:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>azg1tjssql03e,31433</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>2--TraderJoe-BJE-PayCommit.sql</FullPath>
+        </FileNode>
+        <FileNode Name="ap_DBADashGetBlocking.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:azc1monsql001:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>azc1monsql001</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>ap_DBADashGetBlocking.sql</FullPath>
+        </FileNode>
+        <FileNode Name="3--DBADashBlocking_Example.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:azg1monsql001:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>azg1monsql001</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>3--DBADashBlocking_Example.sql</FullPath>
+        </FileNode>
+        <FileNode Name="AG_AddDatabase_FromBackup.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:azh1dfcsql55f,31433:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>azh1dfcsql55f,31433</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>AG_AddDatabase_FromBackup.sql</FullPath>
+        </FileNode>
+        <FileNode Name="AuditTrace_Query.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>AuditTrace_Query.sql</FullPath>
+        </FileNode>
+        <FileNode Name="BackupChain.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>BackupChain.sql</FullPath>
+        </FileNode>
+        <FileNode Name="BackupHistory.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>BackupHistory.sql</FullPath>
+        </FileNode>
+        <FileNode Name="BJE_JobList.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:azg1tjssql03e,31433:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>azg1tjssql03e,31433</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>BJE_JobList.sql</FullPath>
+        </FileNode>
+        <FileNode Name="BJE_List.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:azg1tjssql03e,31433:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>azg1tjssql03e,31433</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>BJE_List.sql</FullPath>
+        </FileNode>
+        <FileNode Name="BJE_WorkFlowProcessor_Counts.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>BJE_WorkFlowProcessor_Counts.sql</FullPath>
+        </FileNode>
+        <FileNode Name="BuildScriptToDropSPs.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>BuildScriptToDropSPs.sql</FullPath>
+        </FileNode>
+        <FileNode Name="CMS_LoopThroughAllDatabasesToFindSP.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>CMS_LoopThroughAllDatabasesToFindSP.sql</FullPath>
+        </FileNode>
+        <FileNode Name="CommandLog.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>CommandLog.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DataExtraction_GetFullBackupLocation.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:azc1dfcsql42dnn.custadds.com:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>azc1dfcsql42dnn.custadds.com</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>DataExtraction_GetFullBackupLocation.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DataExtraction_GetNamespaceClientInfo.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>DataExtraction_GetNamespaceClientInfo.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DataExtraction_RESTORE_SCRUB.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:azc2dfcscb003:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>azc2dfcscb003</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>DataExtraction_RESTORE_SCRUB.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DataExtraction_RESTORE_SCRUB_TDE.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>DataExtraction_RESTORE_SCRUB_TDE.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DataManager - Logging.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>DataManager - Logging.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DataMgmt_Policy.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>DataMgmt_Policy.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DBFileSize.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>DBFileSize.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DFVersion.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>DFVersion.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DFWallet - Create Bank Account Record.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>DFWallet - Create Bank Account Record.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DFWallet - FullWipe.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>DFWallet - FullWipe.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DFWallet - FullWipe_v2.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>DFWallet - FullWipe_v2.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DFWallet - FullWipe_v3.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:app105-dfpg-prod-failover-group.database.windows.net:False:P02C7B6@corpadds.com</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>app105-dfpg-prod-failover-group.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>P02C7B6@corpadds.com</AssociatedConnUserName>
+          <FullPath>DFWallet - FullWipe_v3.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DFWallet - RemoveDeviceFromBlacklilst.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>DFWallet - RemoveDeviceFromBlacklilst.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DFWallet - SuspendGreenDotAccount.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:app105-dfpg-prod-failover-group.database.windows.net:False:P02C7B6@corpadds.com</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>app105-dfpg-prod-failover-group.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>P02C7B6@corpadds.com</AssociatedConnUserName>
+          <FullPath>DFWallet - SuspendGreenDotAccount.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DFWallet - SuspendGW.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>DFWallet - SuspendGW.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DFWallet - UpdateDOB.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:app105-dfpg-prod-failover-group.database.windows.net:False:P02C7B6@corpadds.com</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>app105-dfpg-prod-failover-group.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>P02C7B6@corpadds.com</AssociatedConnUserName>
+          <FullPath>DFWallet - UpdateDOB.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DFWallet - UpdateLastName.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>DFWallet - UpdateLastName.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DFWallet - UpdateSSN.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>DFWallet - UpdateSSN.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DFWallet - UpdateMiddleName.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>DFWallet - UpdateMiddleName.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DFWallet - WalletWipe.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>DFWallet - WalletWipe.sql</FullPath>
+        </FileNode>
+        <FileNode Name="DFWallet - WipeDFIDandGWWalletLink.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:app105-dfpg-prod-failover-group.database.windows.net:False:P02C7B6@corpadds.com</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>app105-dfpg-prod-failover-group.database.windows.net</AssociatedConnSrvName>
+          <AssociatedConnUserName>P02C7B6@corpadds.com</AssociatedConnUserName>
+          <FullPath>DFWallet - WipeDFIDandGWWalletLink.sql</FullPath>
+        </FileNode>
+        <FileNode Name="ExampleDataCollection.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>ExampleDataCollection.sql</FullPath>
+        </FileNode>
+        <FileNode Name="ExampleHTMLEmail.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>ExampleHTMLEmail.sql</FullPath>
+        </FileNode>
+        <FileNode Name="FindClientInfo.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:AZG1DBASQL011:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>AZG1DBASQL011</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>FindClientInfo.sql</FullPath>
+        </FileNode>
+        <FileNode Name="FindGroupMembers.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>FindGroupMembers.sql</FullPath>
+        </FileNode>
+        <FileNode Name="ForeignKeyRelations.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>ForeignKeyRelations.sql</FullPath>
+        </FileNode>
+        <FileNode Name="FRK_examples.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:azg1dfcsql81dnn:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>azg1dfcsql81dnn</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>FRK_examples.sql</FullPath>
+        </FileNode>
+        <FileNode Name="LocateClientDBConnetionInfo.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:AN1PRDDFCMON002:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>AN1PRDDFCMON002</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>LocateClientDBConnetionInfo.sql</FullPath>
+        </FileNode>
+        <FileNode Name="LoopAllClientDatabases.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>LoopAllClientDatabases.sql</FullPath>
+        </FileNode>
+        <FileNode Name="LoopWithCursor.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:azg1cfasql03dnn:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>azg1cfasql03dnn</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>LoopWithCursor.sql</FullPath>
+        </FileNode>
+        <FileNode Name="MicroservicesToolTables.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:AZG1DBASQL011:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>AZG1DBASQL011</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>MicroservicesToolTables.sql</FullPath>
+        </FileNode>
+        <FileNode Name="PlanCache_FindPlanHandle.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:azg1dfcsql90d,31433:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>azg1dfcsql90d,31433</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>PlanCache_FindPlanHandle.sql</FullPath>
+        </FileNode>
+        <FileNode Name="ShrinkAllLogsOnServer.sql">
+          <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:AZG5PSCSQL036:True</AssociatedConnectionMoniker>
+          <AssociatedConnSrvName>AZG5PSCSQL036</AssociatedConnSrvName>
+          <AssociatedConnUserName />
+          <FullPath>ShrinkAllLogsOnServer.sql</FullPath>
+        </FileNode>
+        <FileNode Name="SQLQuery1.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>SQLQuery1.sql</FullPath>
+        </FileNode>
+        <FileNode Name="SQLQuery2.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>SQLQuery2.sql</FullPath>
+        </FileNode>
+        <FileNode Name="TableRelationships.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>TableRelationships.sql</FullPath>
+        </FileNode>
+        <FileNode Name="TDE_RestoreCheck.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>TDE_RestoreCheck.sql</FullPath>
+        </FileNode>
+        <FileNode Name="tempdb_ActiveSessionsUsing.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>tempdb_ActiveSessionsUsing.sql</FullPath>
+        </FileNode>
+        <FileNode Name="tempdb_CleanupDataFiles.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>tempdb_CleanupDataFiles.sql</FullPath>
+        </FileNode>
+        <FileNode Name="tempdb_HighUsageSessions.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>tempdb_HighUsageSessions.sql</FullPath>
+        </FileNode>
+        <FileNode Name="tempdb_InternalObjectUsage.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>tempdb_InternalObjectUsage.sql</FullPath>
+        </FileNode>
+        <FileNode Name="tempdb_LongRunningSessions.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>tempdb_LongRunningSessions.sql</FullPath>
+        </FileNode>
+        <FileNode Name="tempdb_ShrinkFiles.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>tempdb_ShrinkFiles.sql</FullPath>
+        </FileNode>
+        <FileNode Name="tempdb_SPIDAmountOfSpaceUsed.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>tempdb_SPIDAmountOfSpaceUsed.sql</FullPath>
+        </FileNode>
+        <FileNode Name="tempdb_TopSessionInternalPages.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>tempdb_TopSessionInternalPages.sql</FullPath>
+        </FileNode>
+        <FileNode Name="TraceFlagCheck.sql">
+          <AssociatedConnectionMoniker />
+          <AssociatedConnSrvName />
+          <AssociatedConnUserName />
+          <FullPath>TraceFlagCheck.sql</FullPath>
+        </FileNode>
+      </Items>
+    </LogicalFolder>
+    <LogicalFolder Name="Miscellaneous" Type="3" Sorted="true">
+      <Items />
+    </LogicalFolder>
+  </Items>
+</SqlWorkbenchSqlProject>

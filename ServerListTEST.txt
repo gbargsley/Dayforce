@@ -1,0 +1,7 @@
+azg1corsql02a,31433
+azg1corsql02b,31433
+azh1bahsql01c,31433
+azg1dbasql011
+azg1censql02d,31433
+azh1censql02f,31433
+azg1censql02e,31433

@@ -1,0 +1,9 @@
+=== Deploy start: 2026-06-08T10:48:10.6520647-04:00 on azm2hklsql004 ===
+Detected Major=16, ProductVersion=16.0.4250
+VersionInfo: 16.0.4250
+SQL version is 2022+ — proceeding.
+Attempting rename dbo.DatabaseBackup -> DatabaseBackup_glb001...
+Executing SQL content on AdminDB (length 224500 chars)...
+SQL executed successfully.
+=== Deploy end: 2026-06-08T10:48:16.4871854-04:00 ===
+

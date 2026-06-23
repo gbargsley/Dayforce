@@ -1,0 +1,1 @@
+.\Get-FullBackupJobStatus.ps1 -ServerListPath .\Servers_NonProd.txt

@@ -1,0 +1,89 @@
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>AG Failure Log Review</title>
+    <style>
+        body { font-family: Segoe UI, Arial, sans-serif; margin: 20px; color: #222; }
+        h1, h2, h3 { margin-bottom: 8px; }
+        table { border-collapse: collapse; width: 100%; margin-bottom: 18px; }
+        th, td { border: 1px solid #d0d0d0; padding: 6px 8px; vertical-align: top; text-align: left; }
+        th { background: #f3f3f3; }
+        pre { white-space: pre-wrap; background: #f7f7f7; border: 1px solid #dcdcdc; padding: 12px; }
+        .meta { margin-bottom: 18px; }
+        .tiny { color: #666; font-size: 12px; }
+        .incident-block { margin: 18px 0 26px 0; padding: 0; border: 1px solid #ddd; border-left-width: 8px; border-radius: 8px; background: #fff; overflow: hidden; }
+        .incident-block summary { list-style: none; cursor: pointer; padding: 14px 14px 12px 14px; display: flex; flex-direction: column; gap: 4px; }
+        .incident-block summary::-webkit-details-marker { display: none; }
+        .incident-summary { font-weight: 700; font-size: 16px; }
+        .incident-summary-meta { color: #555; font-size: 12px; }
+        .incident-body { padding: 0 14px 14px 14px; }
+        .incident-high { border-left-color: #b42318; background: #fff7f7; }
+        .incident-medium { border-left-color: #d97706; background: #fffaf0; }
+        .incident-low { border-left-color: #15803d; background: #f6fff9; }
+        .row-high td { background: #fff1f1; }
+        .row-medium td { background: #fff7e6; }
+        .row-low td { background: #f5fbff; }
+        .row-failover-start td { background: #ffd6d6; font-weight: 700; }
+        .row-failover-complete td { background: #d6ffd9; font-weight: 700; }
+        .marker-box { border: 1px solid #cfcfcf; padding: 10px; border-radius: 8px; background: #fafafa; margin: 10px 0 14px 0; }
+    </style>
+</head>
+<body>
+    <h1>Availability Group Failure Log Review</h1>
+    <div class="meta">
+        <table>
+    <tr><th>Availability Group</th><td>Prod_AG</td></tr>
+    <tr><th>Seed Instance</th><td>azg1ubssql2dnn.custadds.com</td></tr>
+    <tr><th>Window Start</th><td>04/13/2026 00:00:00</td></tr>
+    <tr><th>Window End</th><td>04/13/2026 23:59:59</td></tr>
+    <tr><th>Raw Event Rows</th><td>0</td></tr>
+    <tr><th>Unique Events</th><td>0</td></tr>
+    <tr><th>Noise Reduction</th><td>0%</td></tr>
+    <tr><th>Incidents</th><td>0</td></tr>
+    <tr><th>Primary Chain</th><td>No primary promotions observed</td></tr>
+    <tr><th>Likely Root Cause</th><td>Unknown (Low)</td></tr>
+    <tr><th>Top Incident</th><td>#</td></tr>
+</table>
+    </div>
+    <h2>Summary</h2>
+    <pre>AG Incident Summary: Prod_AG
+Window: 2026-04-13 00:00:00 to 2026-04-13 23:59:59
+Replicas scanned: 3
+Skipped replicas: none
+Raw rows captured: 0
+Unique events after noise reduction: 0
+Noise reduced by: 0%
+Incidents detected: 0
+Primary chain observed: No primary promotions observed
+
+Quick answer:
+- Failover occurred: NO
+
+Incident workflow:
+
+Primary timeline:
+No explicit primary promotion events were found.
+
+Assessment:
+No high-confidence failover candidate was identified from the available logs.</pre>
+
+    <h2>Primary Timeline</h2>
+    <p class="tiny">This shows the exact promotion evidence used to explain how the AG moved from one primary to another.</p>
+    <table>
+        <tr><th>Time</th><th>Replica</th><th>From</th><th>To</th><th>Evidence</th></tr>
+        
+    </table>
+
+    <h2>Incident Overview</h2>
+    <p class="tiny">Incidents are grouped by quiet gaps between events. The failover markers, confidence score, and root cause are derived from the log evidence.</p>
+    <table>
+        <tr>
+            <th>Incident</th><th>Start</th><th>End</th><th>Duration (min)</th><th>Events</th><th>Status</th><th>Confidence</th><th>Trigger</th><th>Root Cause</th><th>Failover Start</th><th>Failover Complete</th><th>Categories</th><th>Primary Before</th><th>Primary After</th>
+        </tr>
+        
+    </table>
+
+    <h2>Incident Detail</h2>
+    
+</body>
+</html>

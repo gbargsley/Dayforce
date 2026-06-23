@@ -1,0 +1,15 @@
+=== Deploy start: 2026-05-11T15:56:13.7268832-04:00 on azg5hvrsql001 ===
+Detected Major=16, ProductVersion=16.0.4250
+VersionInfo: 16.0.4250
+SQL version is 2022+ — proceeding.
+Attempting rename dbo.DatabaseBackup -> DatabaseBackup_glb001...
+Rename warnings: [15:56:23][Connect-DbaInstance] Failure | Error connecting to [azg5hvrsql001]: Cannot open database "AdminDB" requested by the login. The login failed.
+Login failed for user 'CUSTADDS\PV2C7B6'.; [15:56:23][Invoke-DbaQuery] Failure | Cannot open database "AdminDB" requested by the login. The login failed.
+Login failed for user 'CUSTADDS\PV2C7B6'.
+Executing SQL content on AdminDB (length 224500 chars)...
+SQL executed successfully.
+SQL execution warnings: [15:56:33][Connect-DbaInstance] Failure | Error connecting to [azg5hvrsql001]: Cannot open database "AdminDB" requested by the login. The login failed.
+Login failed for user 'CUSTADDS\PV2C7B6'.; [15:56:33][Invoke-DbaQuery] Failure | Cannot open database "AdminDB" requested by the login. The login failed.
+Login failed for user 'CUSTADDS\PV2C7B6'.
+=== Deploy end: 2026-05-11T15:56:33.9642634-04:00 ===
+

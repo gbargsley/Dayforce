@@ -1,0 +1,4 @@
+=== Deploy start: 2026-03-06T10:58:53.3339468-05:00 on azg5bcpsql001 ===
+Version query warnings: [10:59:08][Connect-DbaInstance] Failure | Error connecting to [azg5bcpsql001]: The network path was not found.; [10:59:08][Invoke-DbaQuery] Failure | The network path was not found.
+Detected Major=, ProductVersion=
+SKIPPED - SQL version  (major ) is older than SQL Server 2022 (major 16).

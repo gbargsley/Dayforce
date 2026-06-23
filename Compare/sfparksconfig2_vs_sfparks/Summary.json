@@ -1,0 +1,15 @@
+{
+  "SourceInstance": "AZG2SIXSQL002",
+  "SourceDatabase": "sfparksconfig2",
+  "DestInstance": "azg1sixsql01dnn",
+  "DestDatabase": "sfparks",
+  "SourceTableCount": 7159,
+  "DestTableCount": 7679,
+  "TablesOnlyInSource": 62,
+  "TablesOnlyInDest": 582,
+  "TablesInBoth": 7097,
+  "SourceIndexCount": 7829,
+  "DestIndexCount": 7834,
+  "TotalIndexDifferences": 3652,
+  "GeneratedAt": "2026-02-03T18:24:47"
+}

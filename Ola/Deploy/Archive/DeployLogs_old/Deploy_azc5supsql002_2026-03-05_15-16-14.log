@@ -1,0 +1,7 @@
+=== Deploy start: 2026-03-05T15:17:21.2011605-05:00 on azc5supsql002 ===
+Attempting to rename dbo.DatabaseBackup -> DatabaseBackup_glb2 in AdminDB...
+Rename step output: RENAMED
+Executing SQL file F:\Temp\GB\Ola\Deploy\DatabaseBackup.sql on AdminDB...
+SQL file executed successfully.
+=== Deploy end: 2026-03-05T15:17:22.8302257-05:00 ===
+

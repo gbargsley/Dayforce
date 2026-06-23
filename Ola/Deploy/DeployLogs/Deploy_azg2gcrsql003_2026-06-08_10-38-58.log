@@ -1,0 +1,19 @@
+=== Deploy start: 2026-06-08T10:45:00.8150216-04:00 on azg2gcrsql003 ===
+Detected Major=16, ProductVersion=16.0.4252
+VersionInfo: 16.0.4252
+SQL version is 2022+ — proceeding.
+Attempting rename dbo.DatabaseBackup -> DatabaseBackup_glb001...
+Executing SQL content on AdminDB (length 224500 chars)...
+SQL executed successfully.
+=== Deploy end: 2026-06-08T10:45:01.5761413-04:00 ===
+
+=== Deploy start: 2026-06-08T10:45:01.5792715-04:00 on azg2gcrsql003 ===
+Detected Major=16, ProductVersion=16.0.4252
+VersionInfo: 16.0.4252
+SQL version is 2022+ — proceeding.
+Attempting rename dbo.DatabaseBackup -> DatabaseBackup_glb001...
+Rename warnings: [10:45:01][Invoke-DbaQuery] [azg2gcrsql003] Failed during execution | Error: The new name 'DatabaseBackup_glb001' is already in use as a OBJECT name and would cause a duplicate that is not permitted.
+Executing SQL content on AdminDB (length 224500 chars)...
+SQL executed successfully.
+=== Deploy end: 2026-06-08T10:45:02.0656364-04:00 ===
+

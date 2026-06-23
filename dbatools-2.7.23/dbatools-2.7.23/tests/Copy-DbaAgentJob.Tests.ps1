@@ -1,0 +1,264 @@
+#Requires -Module @{ ModuleName="Pester"; ModuleVersion="5.0" }
+param(
+    $ModuleName  = "dbatools",
+    $CommandName = "Copy-DbaAgentJob",
+    $PSDefaultParameterValues = $TestConfig.Defaults
+)
+
+Describe $CommandName -Tag UnitTests {
+    Context "Parameter validation" {
+        It "Should have the expected parameters" {
+            $hasParameters = (Get-Command $CommandName).Parameters.Values.Name | Where-Object { $PSItem -notin ("WhatIf", "Confirm") }
+            $expectedParameters = $TestConfig.CommonParameters
+            $expectedParameters += @(
+                "Source",
+                "SourceSqlCredential",
+                "Destination",
+                "DestinationSqlCredential",
+                "Job",
+                "ExcludeJob",
+                "DisableOnSource",
+                "DisableOnDestination",
+                "Force",
+                "UseLastModified",
+                "InputObject",
+                "EnableException"
+            )
+            Compare-Object -ReferenceObject $expectedParameters -DifferenceObject $hasParameters | Should -BeNullOrEmpty
+        }
+    }
+}
+
+Describe $CommandName -Tag IntegrationTests {
+    BeforeAll {
+        # We want to run all commands in the BeforeAll block with EnableException to ensure that the test fails if the setup fails.
+        $PSDefaultParameterValues["*-Dba*:EnableException"] = $true
+
+        # For all the backups that we want to clean up after the test, we create a directory that we can delete at the end.
+        # Other files can be written there as well, maybe we change the name of that variable later. But for now we focus on backups.
+        $backupPath = "$($TestConfig.Temp)\$CommandName-$(Get-Random)"
+        $null = New-Item -Path $backupPath -ItemType Directory
+
+        # Explain what needs to be set up for the test:
+        # To test copying agent jobs, we need to create test jobs on the source instance that can be copied to the destination
+
+        # Set variables. They are available in all the It blocks.
+        $sourceJobName = "dbatoolsci_copyjob"
+        $sourceJobDisabledName = "dbatoolsci_copyjob_disabled"
+
+        # Create the objects.
+        $null = New-DbaAgentJob -SqlInstance $TestConfig.InstanceCopy1 -Job $sourceJobName
+        $null = New-DbaAgentJob -SqlInstance $TestConfig.InstanceCopy1 -Job $sourceJobDisabledName
+
+        # We want to run all commands outside of the BeforeAll block without EnableException to be able to test for specific warnings.
+        $PSDefaultParameterValues.Remove("*-Dba*:EnableException")
+    }
+
+    AfterAll {
+        # We want to run all commands in the AfterAll block with EnableException to ensure that the test fails if the cleanup fails.
+        $PSDefaultParameterValues["*-Dba*:EnableException"] = $true
+
+        # Cleanup all created objects.
+        $null = Remove-DbaAgentJob -SqlInstance $TestConfig.InstanceCopy1 -Job dbatoolsci_copyjob, dbatoolsci_copyjob_disabled
+        $null = Remove-DbaAgentJob -SqlInstance $TestConfig.InstanceCopy2 -Job dbatoolsci_copyjob, dbatoolsci_copyjob_disabled
+
+        # Remove the backup directory.
+        Remove-Item -Path $backupPath -Recurse
+
+        $PSDefaultParameterValues.Remove("*-Dba*:EnableException")
+    }
+
+    Context "Command copies jobs properly" {
+        BeforeAll {
+            $results = Copy-DbaAgentJob -Source $TestConfig.InstanceCopy1 -Destination $TestConfig.InstanceCopy2 -Job dbatoolsci_copyjob
+        }
+
+        It "returns one success" {
+            $results.Name | Should -Be "dbatoolsci_copyjob"
+            $results.Status | Should -Be "Successful"
+        }
+
+        It "did not copy dbatoolsci_copyjob_disabled" {
+            Get-DbaAgentJob -SqlInstance $TestConfig.InstanceCopy2 -Job dbatoolsci_copyjob_disabled | Should -BeNullOrEmpty
+        }
+
+        It "disables jobs when requested" {
+            $splatCopyJob = @{
+                Source               = $TestConfig.InstanceCopy1
+                Destination          = $TestConfig.InstanceCopy2
+                Job                  = "dbatoolsci_copyjob_disabled"
+                DisableOnSource      = $true
+                DisableOnDestination = $true
+                Force                = $true
+            }
+            $results = Copy-DbaAgentJob @splatCopyJob
+
+            $results.Name | Should -Be "dbatoolsci_copyjob_disabled"
+            $results.Status | Should -Be "Successful"
+            (Get-DbaAgentJob -SqlInstance $TestConfig.InstanceCopy1 -Job dbatoolsci_copyjob_disabled).Enabled | Should -BeFalse
+            (Get-DbaAgentJob -SqlInstance $TestConfig.InstanceCopy2 -Job dbatoolsci_copyjob_disabled).Enabled | Should -BeFalse
+        }
+    }
+
+    Context "Regression test for issue #9982" {
+        It "copies all jobs when -Job parameter is not specified" {
+            # Copy all jobs without specifying -Job parameter, using -Force to ensure they copy even if they exist
+            $results = Copy-DbaAgentJob -Source $TestConfig.InstanceCopy1 -Destination $TestConfig.InstanceCopy2 -Force
+
+            # Both jobs should be copied
+            $results.Name | Should -Contain "dbatoolsci_copyjob"
+            $results.Name | Should -Contain "dbatoolsci_copyjob_disabled"
+            $results.Status | Should -Not -Contain "Skipped"
+            $results.Status | Should -Not -Contain "Failed"
+
+            # Verify jobs exist on destination
+            $destJobsCopied = Get-DbaAgentJob -SqlInstance $TestConfig.InstanceCopy2 -Job dbatoolsci_copyjob, dbatoolsci_copyjob_disabled
+            $destJobsCopied.Count | Should -BeGreaterOrEqual 2
+        }
+    }
+
+    Context "UseLastModified parameter" {
+        BeforeAll {
+            $PSDefaultParameterValues["*-Dba*:EnableException"] = $true
+
+            # Create a test job on both source and destination with same modification date
+            $testJobModified = "dbatoolsci_copyjob_modified"
+            $null = New-DbaAgentJob -SqlInstance $TestConfig.InstanceCopy1 -Job $testJobModified
+            Start-Sleep -Seconds 2
+
+            # Copy to destination first time
+            $splatInitialCopy = @{
+                Source      = $TestConfig.InstanceCopy1
+                Destination = $TestConfig.InstanceCopy2
+                Job         = $testJobModified
+            }
+            $null = Copy-DbaAgentJob @splatInitialCopy
+
+            # Ensure both jobs have the exact same date_modified by setting destination to match source
+            $escapedJobName = $testJobModified.Replace("'", "''")
+            $sourceDate = Invoke-DbaQuery -SqlInstance $TestConfig.InstanceCopy1 -Database msdb -Query "SELECT date_modified FROM dbo.sysjobs WHERE name = '$escapedJobName'" | Select-Object -ExpandProperty date_modified
+            $updateQuery = "UPDATE msdb.dbo.sysjobs SET date_modified = '$($sourceDate.ToString("yyyy-MM-dd HH:mm:ss.fff"))' WHERE name = '$escapedJobName'"
+            $null = Invoke-DbaQuery -SqlInstance $TestConfig.InstanceCopy2 -Query $updateQuery
+
+            $PSDefaultParameterValues.Remove("*-Dba*:EnableException")
+        }
+
+        AfterAll {
+            $PSDefaultParameterValues["*-Dba*:EnableException"] = $true
+            $null = Remove-DbaAgentJob -SqlInstance $TestConfig.InstanceCopy1 -Job dbatoolsci_copyjob_modified -ErrorAction SilentlyContinue
+            $null = Remove-DbaAgentJob -SqlInstance $TestConfig.InstanceCopy2 -Job dbatoolsci_copyjob_modified -ErrorAction SilentlyContinue
+            $PSDefaultParameterValues.Remove("*-Dba*:EnableException")
+        }
+
+        It "skips job when dates are equal" {
+            $splatUseModified = @{
+                Source          = $TestConfig.InstanceCopy1
+                Destination     = $TestConfig.InstanceCopy2
+                Job             = "dbatoolsci_copyjob_modified"
+                UseLastModified = $true
+            }
+            $result = Copy-DbaAgentJob @splatUseModified
+
+            $result.Name | Should -Be "dbatoolsci_copyjob_modified"
+            $result.Status | Should -Be "Skipped"
+            $result.Notes | Should -BeLike "*same modification date*"
+        }
+
+        It "updates job when source is newer" {
+            $PSDefaultParameterValues["*-Dba*:EnableException"] = $true
+
+            # Modify the source job to make it newer
+            $sourceJob = Get-DbaAgentJob -SqlInstance $TestConfig.InstanceCopy1 -Job "dbatoolsci_copyjob_modified"
+            $sourceJob.Description = "Modified description"
+            $sourceJob.Alter()
+            Start-Sleep -Seconds 2
+
+            $PSDefaultParameterValues.Remove("*-Dba*:EnableException")
+
+            $splatUseModified = @{
+                Source          = $TestConfig.InstanceCopy1
+                Destination     = $TestConfig.InstanceCopy2
+                Job             = "dbatoolsci_copyjob_modified"
+                UseLastModified = $true
+            }
+            $result = Copy-DbaAgentJob @splatUseModified
+
+            $result.Name | Should -Be "dbatoolsci_copyjob_modified"
+            $result.Status | Should -Be "Successful"
+        }
+    }
+
+    Context "Regression test for issue #9316 - alert-to-job links preserved with -Force" {
+        BeforeAll {
+            $PSDefaultParameterValues["*-Dba*:EnableException"] = $true
+
+            $testJobWithAlert = "dbatoolsci_copyjob_alert"
+            $testAlertName = "dbatoolsci_alert_for_job"
+
+            # Create job on both instances
+            $null = New-DbaAgentJob -SqlInstance $TestConfig.InstanceCopy1 -Job $testJobWithAlert
+            $null = New-DbaAgentJob -SqlInstance $TestConfig.InstanceCopy2 -Job $testJobWithAlert
+
+            # Create alert on destination that references the job
+            $splatCreateAlert = @{
+                SqlInstance = $TestConfig.InstanceCopy2
+                Database    = "msdb"
+                Query       = @"
+EXEC msdb.dbo.sp_add_alert
+    @name = N'$testAlertName',
+    @message_id = 0,
+    @severity = 16,
+    @enabled = 1,
+    @delay_between_responses = 0,
+    @include_event_description_in = 1,
+    @job_name = N'$testJobWithAlert'
+"@
+            }
+            $null = Invoke-DbaQuery @splatCreateAlert
+
+            $PSDefaultParameterValues.Remove("*-Dba*:EnableException")
+        }
+
+        AfterAll {
+            $PSDefaultParameterValues["*-Dba*:EnableException"] = $true
+            $splatDropAlert = @{
+                SqlInstance = $TestConfig.InstanceCopy2
+                Database    = "msdb"
+                Query       = "EXEC msdb.dbo.sp_delete_alert @name = N'$testAlertName'"
+            }
+            $null = Invoke-DbaQuery @splatDropAlert -ErrorAction SilentlyContinue
+            $null = Remove-DbaAgentJob -SqlInstance $TestConfig.InstanceCopy1 -Job $testJobWithAlert -ErrorAction SilentlyContinue
+            $null = Remove-DbaAgentJob -SqlInstance $TestConfig.InstanceCopy2 -Job $testJobWithAlert -ErrorAction SilentlyContinue
+            $PSDefaultParameterValues.Remove("*-Dba*:EnableException")
+        }
+
+        It "preserves alert-to-job link when copying with -Force" {
+            # Copy the job with -Force, which should drop and recreate it
+            $splatCopyForce = @{
+                Source      = $TestConfig.InstanceCopy1
+                Destination = $TestConfig.InstanceCopy2
+                Job         = $testJobWithAlert
+                Force       = $true
+            }
+            $result = Copy-DbaAgentJob @splatCopyForce
+
+            $result.Status | Should -Be "Successful"
+
+            # Verify the alert still has the job association
+            $splatCheckAlert = @{
+                SqlInstance = $TestConfig.InstanceCopy2
+                Database    = "msdb"
+                Query       = @"
+SELECT a.name as AlertName, j.name as JobName
+FROM msdb.dbo.sysalerts a
+LEFT JOIN msdb.dbo.sysjobs j ON a.job_id = j.job_id
+WHERE a.name = '$testAlertName'
+"@
+            }
+            $alertCheck = Invoke-DbaQuery @splatCheckAlert
+
+            $alertCheck.AlertName | Should -Be $testAlertName
+            $alertCheck.JobName | Should -Be $testJobWithAlert
+        }
+    }
+}

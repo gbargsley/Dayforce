@@ -1,0 +1,10 @@
+=== Deploy start: 2026-03-06T10:26:10.5975021-05:00 on azc5pscsql001 ===
+Checking SQL version...
+Detected Major=16, ProductVersion=
+SQL version is 2022+ — proceeding.
+Attempting rename dbo.DatabaseBackup -> DatabaseBackup_glb4...
+Rename result: RENAMED
+Executing SQL content on AdminDB (length 224458 chars)...
+SQL executed successfully.
+=== Deploy end: 2026-03-06T10:26:12.7121780-05:00 ===
+

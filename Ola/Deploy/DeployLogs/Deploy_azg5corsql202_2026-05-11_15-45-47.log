@@ -1,0 +1,4 @@
+=== Deploy start: 2026-05-11T15:46:22.5563978-04:00 on azg5corsql202 ===
+Detected Major=15, ProductVersion=15.0.4465
+VersionInfo: 15.0.4465
+SKIPPED - SQL version True (major 15) is older/unknown; skipping deployment.

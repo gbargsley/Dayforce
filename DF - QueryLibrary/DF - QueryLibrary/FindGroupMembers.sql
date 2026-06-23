@@ -1,0 +1,1 @@
+exec xp_logininfo 'CUSTADDS\AdminRole-IT-DFHostingDBA', 'members'

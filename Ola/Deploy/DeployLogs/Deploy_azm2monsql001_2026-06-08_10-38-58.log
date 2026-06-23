@@ -1,0 +1,9 @@
+=== Deploy start: 2026-06-08T10:48:47.0931444-04:00 on azm2monsql001 ===
+Detected Major=17, ProductVersion=17.0.4040
+VersionInfo: 17.0.4040
+SQL version is 2022+ — proceeding.
+Attempting rename dbo.DatabaseBackup -> DatabaseBackup_glb001...
+Executing SQL content on AdminDB (length 224500 chars)...
+SQL executed successfully.
+=== Deploy end: 2026-06-08T10:48:52.9194364-04:00 ===
+

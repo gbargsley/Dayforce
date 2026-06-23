@@ -1,0 +1,11 @@
+=== Deploy start: 2026-05-11T14:47:36.8150524-04:00 on aza5monsql001 ===
+Detected Major=17, ProductVersion=17.0.4030
+VersionInfo: 17.0.4030
+SQL version is 2022+ — proceeding.
+Attempting rename dbo.DatabaseBackup -> DatabaseBackup_glb6...
+Executing SQL content on AdminDB (length 224643 chars)...
+SQL executed successfully.
+SQL execution warnings: [14:47:48][Invoke-DbaQuery] [aza5monsql001] Failed during execution | Incorrect syntax near '@CurrentDateUTC'.
+Incorrect syntax near ','.
+=== Deploy end: 2026-05-11T14:47:48.6177765-04:00 ===
+
