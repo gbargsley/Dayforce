@@ -1,0 +1,96 @@
+exec sp_executesql N'/* GetDocumentTypesForUser */ DECLARE @IncludePiiFiles BIT = CAST(CASE WHEN (@RestrictPiiDocuments = ''False'') THEN 1 ELSE 0 END AS BIT);
+
+              DECLARE @DocTypeList TABLE(
+                    ShortName nvarchar(128),
+                    DocMgmtTypeId int,
+                    XRefCode  nvarchar(128),
+                    MaxFileBytes int,
+                    Filetypes nvarchar(max),
+                    Permission nvarchar(max),
+                    IsPII BIT,
+                    IsExcludedFromDiskSpaceCalc BIT,
+                    CanCreate BIT,
+                    CanRead BIT,
+                    CanUpdate BIT,
+                    CanDelete BIT,
+                    CanDownload BIT,
+                    CanPreview BIT,
+                    ClientId int,
+                    IsAvailableForAllRoles BIT)
+
+            INSERT INTO @DocTypeList(ShortName, DocMgmtTypeId, XRefCode, MaxFileBytes, Filetypes, Permission, IsPII, IsExcludedFromDiskSpaceCalc, CanCreate, CanRead, CanUpdate, CanDelete, CanDownload, CanPreview, ClientId, IsAvailableForAllRoles)
+                    SELECT Coalesce(tc.ShortName, t.ShortName) as ShortName,
+                              T.DocMgmtTypeId,
+                              T.XRefCode,
+                              T.MaxFileBytes,
+                              stuff((select '', '' + ''.'' + LOWER(DocMgmtFileType.Extension)
+                                  from DocMgmtTypeToDocMgmtFileType
+                                  inner join DocMgmtFileType on DocMgmtFileType.DocMgmtFileTypeId = DocMgmtTypeToDocMgmtFileType.DocMgmtFileTypeId
+                                        where T.DocMgmtTypeId = DocMgmtTypeToDocMgmtFileType.DocMgmtTypeId AND DocMgmtTypeToDocMgmtFileType.ClientId=@ClientId
+                                  for XML PATH('''')), 1, 2, '''' ) AS Filetypes,
+                              CASE
+                                  WHEN prm.XRefCode = ''ME'' OR  sprm.XRefCode = ''ME'' THEN ''ME''
+                                  WHEN ( (prm.XRefCode <> ''ME'' OR prm.XRefCode IS NULL)
+                                          AND  (sprm.XRefCode <> ''ME'' OR sprm.XRefCode Is NULL))
+                                      AND (prm.XRefCode = ''TEAM'' OR  sprm.XRefCode = ''TEAM'') THEN ''TEAM''
+                              END AS Permission,
+                              T.IsPII,
+                              T.IsExcludedFromDiskSpaceCalc,
+                                CASE WHEN T.IsAvailableForAllRoles=1 THEN 1 ELSE coalesce(RM.CanCreate, 1) END AS CanCreate,
+                              CASE WHEN T.IsAvailableForAllRoles=1 THEN 1 ELSE coalesce(RM.CanRead, 1) END AS CanRead,
+                                RM.CanUpdate,
+                                RM.CanDelete,
+                                CASE WHEN T.IsAvailableForAllRoles=1 THEN 1 ELSE coalesce(RM.CanDownload, 1) END AS CanDownload,
+                                CASE WHEN T.IsAvailableForAllRoles=1 THEN 1 ELSE coalesce(RM.CanPreview, 1) END AS CanPreview,
+                                T.ClientId,
+                                T.IsAvailableForAllRoles
+                          FROM DocMgmtType T
+                            LEFT JOIN DocMgmtTypeCulture tc on t.DocMgmtTypeId = tc.DocMgmtTypeId and tc.CultureId = @CultureId
+                            LEFT JOIN DocMgmtRoleMap rm on (t.DocMgmtTypeId = rm.DocMgmtTypeId AND rm.RoleId=@RoleId AND rm.ClientId=@ClientId)
+                            LEFT JOIN DocMgmtTypeToSecurityGroupMap g on (t.DocMgmtTypeId = g.DocMgmtTypeId  and g.ClientId=@ClientId)
+                                AND g.DocMgmtSecurityGroupId IN (SELECT DocMgmtSecurityGroupId FROM DocMgmtSecurityGroupUserMap WHERE UserId=@UserId AND ClientId=@ClientId)
+                            LEFT JOIN DocMgmtPermission prm ON rm.DocMgmtPermissionId=prm.DocMgmtPermissionId
+                            LEFT JOIN DocMgmtPermission sprm ON g.DocMgmtPermissionId=sprm.DocMgmtPermissionId
+                          WHERE
+                            -- Do not show hidden documents
+                            T.IsHidden = 0
+                        AND T.IsPII IN (0, @IncludePiiFiles)
+                          AND
+                            -- Optionally filter document types based on associated entity
+                            (EXISTS (select 1 from DocMgmtTypeToDocMgmtEntity te
+                                        JOIN DocMgmtEntity e on te.DocMgmtEntityId = e.DocMgmtEntityId
+                                          where t.DocMgmtTypeId = te.DocMgmtTypeId AND (e.XRefCode = @EntityXRefCode OR @EntityXRefCode IS NULL) AND te.ClientId=@ClientId))
+                              AND (
+                                      T.IsAvailableForAllRoles = 1
+                                      OR
+                                        (
+                                        (
+                                              -- Scenario 1: If both Role and Security Group mappings exist then the user should have both.
+                                              (EXISTS (select 1 from DocMgmtRoleMap dr where t.DocMgmtTypeId = dr.DocMgmtTypeId and dr.RoleId = @RoleId AND dr.ClientId=@ClientId))
+                                              AND
+                                              (
+                                                  (EXISTS (select 1 from DocMgmtTypeToSecurityGroupMap sg
+                                                          INNER JOIN DocMgmtSecurityGroupUserMap um on sg.DocMgmtSecurityGroupId=um.DocMgmtSecurityGroupId
+                                                          where t.DocMgmtTypeId = sg.DocMgmtTypeId
+                                                          AND um.userId=@UserId AND um.ClientId=@ClientId))
+                                              )
+                                          )
+                                          OR
+                                          (
+                                              -- Scenario 2: Only Role mapping exists but no Security Group mapping.In this case the user should have the role.
+                                              (EXISTS (select 1 from DocMgmtRoleMap dr where t.DocMgmtTypeId = dr.DocMgmtTypeId and dr.RoleId = @RoleId AND dr.ClientId=@ClientId))
+                                              AND
+                                              (
+                                                  (NOT EXISTS (select 1 from DocMgmtTypeToSecurityGroupMap sg where t.DocMgmtTypeId = sg.DocMgmtTypeId))
+                                              )
+                                          )
+                                      )
+                                )
+                                AND
+                                        (
+                                    -- If Pay Access is restricted then do not include Pay related types
+                                              (@RestrictPayAccess = ''True'' AND T.XRefCode NOT IN(''PAY_RUN'', ''PAY_GROUP_CALENDAR''))
+                                              OR
+                                              (@RestrictPayAccess = ''False'' OR @RestrictPayAccess IS NULL)
+                                      )
+                                            AND (1 = CASE  WHEN T.IsAvailableForAllRoles=1 THEN 1 ELSE CASE WHEN @AllowCreateOnly = ''True'' THEN 1 ELSE RM.CanRead END END) select * from (SELECT DISTINCT ShortName, DocMgmtTypeId, XRefCode, MaxFileBytes, Filetypes, Permission, IsPII, IsExcludedFromDiskSpaceCalc, CanCreate, CanRead, CanUpdate, CanDelete, CanDownload, CanPreview, ClientId, IsAvailableForAllRoles FROM @DocTypeList) as outertable  where ClientId in (0,@ClientId)  and DocMgmtTypeId = 7 AND XRefCode NOT IN (''DF_DOC_YEAR_END'',''DF_DOC_PAY_SLIP'',''DF_DOC_END_OF_EMPLOY'')',N'@RestrictPiiDocuments nvarchar(4000),@RestrictPayAccess nvarchar(4000),@RoleId bigint,@EntityXRefCode nvarchar(4000),@AllowCreateOnly nvarchar(4000),@UserId bigint,@CultureId bigint,@ClientId int',@RestrictPiiDocuments=N'False',@RestrictPayAccess=N'False',@RoleId=1001,@EntityXRefCode=N'CANDIDATE',@AllowCreateOnly=N'True',@UserId=1002,@CultureId=1033,@ClientId=104605

@@ -1,0 +1,1 @@
+﻿Get-ChildItem -Path "C:\Path\To\Your\Scripts" -Recurse | Unblock-File

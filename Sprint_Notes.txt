@@ -1,0 +1,101 @@
+Sprint discussion - 
+
+3 week period to complete work
+
+1st week planning brainstorming
+
+2 weeks to deliver work
+
+
+
+DBAOps Sprints
+
+
+DBA OPs - Agile Framework - confluence
+Scrum Ceramonies - Confluence
+
+
+6 week sprint for DBAOps
+
+1st week sprint planning brainstorming items to do during sprint
+technical brainstorming to discuss with everyone in sprint to discuss each item and clarify what is
+needed and expectation on work
+
+sprint planning day when assignments are set
+you can pick what to do if you have exposure to a specific function
+
+
+week 2 - 5 you work on your item and deliver what is required
+
+week 6 is restrospective and demo the delivereable and close the sprint
+what worked, what did not work, improvements, work spill over
+
+
+Mid week sprint standup bi weekly
+
+
+Track Sprint in Cloud DBA Operations board - Jira
+https://dayforce.atlassian.net/jira/software/c/projects/CLOUDDBA/boards/1094
+
+
+Epic = timeline of project and multiple items to be actioned
+big project for long period of time
+
+
+
+Epic -> Work Item -> Task
+
+
+Focus on Active Sprint
+CDO Sprint YYYYMMDD
+
+
+
+
+
+
+
+
+Name Space Chenge
+DBA Built process
+
+CM executes
+
+Aligning namespace so namespace and database name do not match
+
+DB name
+logical name
+microservice name
+
+
+current process requires multiple small processes
+
+
+DBA Task
+Microservice
+
+Namespace change - DBA Tasks
+
+Old Code from Sonal
+- Powershell
+
+
+Current sprint
+have conversation with CM on how are changes being done with AG and standalone
+set meeting with CM to do gap analysis 
+
+
+Another session with Sonal to discuss further
+
+
+
+https://dayforce.atlassian.net/jira/software/c/projects/CLOUDDBA/boards/1094
+
+
+
+
+
+
+
+
+

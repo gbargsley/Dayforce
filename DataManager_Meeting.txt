@@ -1,0 +1,24 @@
+find the control DB for the namespace
+
+monitor server for control db
+an1prddfcmon002.dforce1.navisite.net
+
+
+select * from sitesetting
+
+
+run update from wiki page
+
+Begin Tran
+for safety
+
+change namespace to client namespace
+you can use comma for additional if you want multiple namespace
+
+
+
+disable when done
+
+
+Gather the blocking SPID for the issue, get query
+

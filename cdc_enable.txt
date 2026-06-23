@@ -1,0 +1,7 @@
+-- If restoring database with CDC enabled
+
+IF EXISTS (SELECT 1 FROM master.sys.databases WHERE [name] = 'woodranch' AND is_cdc_enabled = 1)
+BEGIN
+EXEC [woodranch]..sp_repldone @xactid = NULL, @xact_segno = NULL, @numtrans = 0, @time = 0, @reset = 1;
+EXEC [woodranch]..sp_replflush
+END

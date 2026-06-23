@@ -1,0 +1,49 @@
+PowerPay is DB2 - Pushpankar
+CNET is ORACLE - Garry
+
+\\corpadds.com\root\interDEP\Technology\Dbateam\CNET Documentation\1-CNET DB&Server Overview
+
+
+Review Toad, DBeaver, SQL Developer and other Oracle tools
+
+Oracle Client to be installed by Desktop 
+
+Get logins created in QA
+
+Get connectivity setup
+
+
+https://dfprod.service-now.com/sp?id=sc_cat_item&sys_id=1545545637f8560006c11f9543990e8d
+
+
+
+
+Sanjay:
+
+2026 Goal Setting
+
+Plan guide
+
+Cyber phishing email:
+- test was not straightforward
+- Copy and paste should be allowed for confirmation if they want it exact
+
+
+Ola Script
+- TimeStamp code
+
+-- get meeting with Jeremy to understand deployment and code repo
+
+
+Ceridian email domain
+-- Automation
+
+PTO next week
+
+
+Toad
+
+Goals
+
+
+AI learning and job incorporate

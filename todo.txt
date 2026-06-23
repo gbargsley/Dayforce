@@ -1,0 +1,33 @@
+To do
+
+1.) Work with Pushpankar on mongodb connection for Full Wipe script
+2.) Sanjay show him thoughts on long running alert mails (sleeping, 1 tran and bje)  --- Look at adding an exclusion
+3.) Rover research based on meeting with team  --- Done after meeting with team and research
+4.) Figure out Storage Account access in Azure
+5.) UPS timeout Salesforce ticket can be closed at 12/17  ---- Case closed 12/18/2025
+6.) check status of Jira ticket INFCLOUDBA-6428 on 12/17
+
+Sanjay
+What should I be doing and what can I be learing?
+struggling with understanding alerts and prioroty versus focus on ticket work
+Who gets MIM info?  Can we all get the details for just joining to observe.
+See SQL Sentry Jobs can we remove?  you can remove with no tracking
+What do we need to be learning from the Chamalot meetings?
+
+ask gageen about document extract
+
+dbahosting dl
+
+acknowldge request via email
+
+
+
+bje
+
+prtg server high memory or cpu
+send to SRE team if server is stressed
+
+
+
+exec admindb..ap_BackupChain 'lululemon',@fullchain =1
+exec admindb..ap_BackupChain 'lululemon',@fulldiffonly =1

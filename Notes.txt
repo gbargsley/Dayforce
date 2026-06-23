@@ -1,0 +1,101 @@
+
+https://ceridian.sharepoint.com/sites/Cybersecurity/SitePages/Multi-Factor-Authentication-(MFA)1.aspx?e=4%3Af68d36121f814148886951d367e6ee5c&web=1&openShare=true&fromShare=true&at=9&CID=02e1b1a1-70de-9000-392f-bcf01e972274&cidOR=SPO&xsdata=MDV8MDJ8fGE5ODNhYzBjM2FjZDQ4ZTcyNTE1MDhkZGM5MmVlYzYxfDI4OTMyMWUwOWRiNjQ2NDRiMzcxOTU2ZTYwNTZkOWVifDB8MHw2Mzg4ODc5MjU1Mjc5NDY1MTd8VW5rbm93bnxWR1ZoYlhOVFpXTjFjbWwwZVZObGNuWnBZMlY4ZXlKRFFTSTZJbFJsWVcxelgwRlVVRk5sY25acFkyVmZVMUJQVEU5R0lpd2lWaUk2SWpBdU1DNHdNREF3SWl3aVVDSTZJbGRwYmpNeUlpd2lRVTRpT2lKUGRHaGxjaUlzSWxkVUlqb3hNWDA9fDF8TDJOb1lYUnpMekU1T20xbFpYUnBibWRmVGxkS2EwOVhVVE5PZWxWMFRWZEZOVnBETURCTmJVWnNURmRGZDAxSFNYUlBWRmt3V1ZSU2JVNXRWVFJhYWxwc1FIUm9jbVZoWkM1Mk1pOXRaWE56WVdkbGN5OHhOelV6TVRrMU56VXlORFU0fDliNmRmMjk5OTkwYjQ2MDRkMTg0MDhkZGM5MmVlYzYwfGNiNzcxYjYyMDI0YTRlOWNhYzMxMGMxMzZkZjZkZjg4&sdata=N053V2hCc1pCNWpuM1ZkUWpoK3luVzhjYjhtVEVubk92ZmdxYXF1N1h5TT0%3D&ovuser=289321e0-9db6-4644-b371-956e6056d9eb%2CHema.Parthasarathy%40dayforce.com&OR=Teams-HL&CT=1753195748761&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNTA3MDMxODgwNiJ9&startedResponseCatch=true
+
+P02C7B6@corpadds.com
+7CtX*gAk
+PV2C7B6@custadds.com
+
+Computer ID: P12C7B6
+
+
+Server naming conventions:
+
+AZA1--For Australia
+AZC1--For Canada
+AZG1-For US
+AZM1 For Europe
+
+
+custadds\PV2C7B6
+corpadds\PV2C7B6
+
+azure sql
+app105-dfpg-prod-data-eastus2-sqlsvr.database.windows.net
+app105-dfpg-prod-failover-group.database.windows.net
+app105-dfpguk-prod-data-northeurope-sqlsvr.database.windows.net
+app105-dfpguk-prod-data-westeurope-sqlsvr.database.windows.net
+app105-dfpguk-prod-failover-group.database.windows.net
+
+----- Access Info -----
+Access to Azure SQL DB:
+AdminRole-IT-DFDBA-Cloud (Cloud Group)
+
+Access to RDP Servers: (ADDED)
+CUSTADDS\AdminRole-IT-DFHostingDBA
+
+Access to NonProd SQL Servers:
+CUSTADDS\SQLTEMPPP-AdminRole-IT-DFHostingDBA
+
+Access to Henkel servers:
+https://dfprod.service-now.com/sp?id=sc_cat_item&sys_id=53606d8d1bc18510e72e5310604bcbcc
+
+--JIRA access
+https://dfprod.service-now.com/sp?id=sc_cat_item&table=sc_cat_item&sys_id=43f9b84b1b992490eb78fd951a4bcb9e&recordUrl=com.glideapp.servicecatalog_cat_item_view.do%3Fv%3D1&sysparm_id=43f9b84b1b992490eb78fd951a4bcb9e
+-- Jira Instance = dayforce.atlassian.net
+-- Category = Cloud Infrastructure
+
+PRTG access
+https://dfprod.service-now.com/sp?id=sc_cat_item&sys_id=1028b01087334a9038d841d8dabb35c9
+-- Level of Access = read
+
+salesforce access
+https://dfprod.service-now.com/sp?id=sc_cat_item&table=sc_cat_item&sys_id=30ef41bd3737020006c11f9543990e27&recordUrl=com.glideapp.servicecatalog_cat_item_view.do%3Fv%3D1&sysparm_id=30ef41bd3737020006c11f9543990e27
+
+Need access to:
+Azure Storage Accounts
+AN1PRDDFCMON002  for RDP
+Jira CloudDBA JSM Project
+Toolbox
+
+
+
+
+
+
+AZG1DFCJMP001.custadds.com
+
+Locate User Name from PV, P0 or P1 account:
+net user /domain P128C36
+net user /domain PV28C36
+
+DBA Admin servers
+
+azg1dbasql011
+azg1dbasql001
+
+
+senapp for jump box 
+
+
+
+
+Set Cloud Witness
+Set-ClusterQuorum -CloudWitness -AccountName "mystorageacct" -AccessKey "NEWKEYHERE"
+
+
+
+Slow Queries - Failed - 
+AZM1geusql04a - 3318 - 2-abort
+
+
+
+SQL 2025 Test Server: azc9mbimgtst14a.custadds.com
+
+
+
+Access BJE Job history for all executions.
+
+AZG1CORSQL02DNN\us252control.backgroundjobworkarchive
+
+
+ 

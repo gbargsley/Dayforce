@@ -1,0 +1,98 @@
+Alert meeting
+
+Can we supress internal alerts during patching?
+AOAG out of Sync
+Failed Jobs in the past 6 hours
+NonProd / PreProd what is actionable from PRTG
+Long Running Queries
+ - Filtered and Summarized over certain hours
+ 
+ 
+ 
+Same alert over and over.
+Can we not send same alert.
+
+Can we send a daily summary of alerts that are not actionable in real time
+
+
+
+Summarize email box for last 30 days of emails and see count for each alert for analysis
+
+Grafana
+ - DBADash
+ - PRTG
+ 
+ 
+Elmer Alarilla
+9:39 AM
+ for the PRTG alerts for Pre-Prod. It alerts almost every 4 minutes when CPU or Drive space met certain %. Maybe we can ask to adjust it to check every 15 minutes or more. That will help reduce pressure on PRTG too
+ 
+ 
+ 
+https://nam02.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdayforce.atlassian.net%2Fwiki%2Fspaces%2FHOS%2Fpages%2F1875443835%2FAlert%2BOptimization%2BReduction%2BProject&data=05%7C02%7CGarry.Bargsley%40dayforce.com%7C70705cf6ebf64c1f57fc08debcc61f30%7C289321e09db64644b371956e6056d9eb%7C0%7C0%7C639155756293123369%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=J2Ay2NQTe02A372qllGtBKRbg1vL2RELgDeH2HF4%2FrI%3D&reserved=0
+
+
+
+Also, it would be nice to have a blackout period, such as no PRTG alerts between 12 AM and 2 AM DB server time, since most re-org and database backup jobs run during that timeframe. We continue to receive long-running and blocking alerts 24/7, so we can simply use those alerts for spot-checking if there is CPU pressure.
+
+
+DBA Team : Running Queries with duration > 30 minutes and Sleeping Queries with duration > 10 minutes
+
+
+DBServer
+
+DBName
+
+SPID
+
+LoginName
+
+HOSTNAME
+
+PROGRAMNAME
+
+StartTime
+
+RunDuration
+
+SqlQuery
+
+OpenTransactions
+
+Status
+
+CPUTime
+
+LastWaitType
+
+Command
+
+ScriptHash
+
+azg1dbasql011
+
+master
+
+127
+
+cdpprod
+
+TORSVSUP01
+
+Microsoft SQL Server
+
+2026-05-28T14:44:52
+
+0 hour(s), 11 min, 40 sec
+
+SELECT "Col1220","Col1221","Col1222","Expr1053" FROM (SELECT "Tbl1004"."site" "Col1220","Tbl1004"."C
+
+1
+
+sleeping
+
+5391
+
+0x6C2E30D5F2
+
+ 

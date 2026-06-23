@@ -1,0 +1,31 @@
+Sanjay 1:1 - 12/03/2025
+
+All Open Cloud DBA JSM tickets
+
+JSM from internal teams
+
+
+Customer Facing tickets in Salesforce
+
+Sev 1 
+
+
+DBADash DB query - JSM ticket
+
+Long running queries list for exclusions
+
+
+
+Cloud DBA JSM - Queues - All open - Service project - Jira
+
+
+https://dayforce.atlassian.net/jira/servicedesk/projects/INFCLOUDBA/queues/custom/240
+
+https://dayforce.lightning.force.com/lightning/r/Report/00O5d0000077SQTEA2/view
+
+https://dayforce.lightning.force.com/lightning/o/Case/list?filterName=DF_Cloud_Ops_Tech_DBA_Case
+
+
+ 
+ 
+ 
